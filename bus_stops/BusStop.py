@@ -5,9 +5,12 @@ class BusStop:
     def get_bus_stop(self):
         bus_stop_distance = int(input())
         sveta_distance = int(input())
-        count_of_bus_stop = sveta_distance // bus_stop_distance
-        distance_of_near_bus_stop = bus_stop_distance * count_of_bus_stop
-        distance_from_sveta_to_near_bus_stop = distance_of_near_bus_stop - sveta_distance
-        print(abs(distance_from_sveta_to_near_bus_stop))
+        next_of_bus_stop = max(sveta_distance // bus_stop_distance, 1)
+        distance_of_near_bus_stop = bus_stop_distance * next_of_bus_stop
+        previous_bus_stop = (next_of_bus_stop - 1)
+        distance_of_previous_bus_stop = previous_bus_stop * bus_stop_distance
+        print(min(distance_of_near_bus_stop - sveta_distance,sveta_distance - distance_of_previous_bus_stop))
+
+
 
 
